@@ -23,10 +23,10 @@ class TechnologySeeder extends Seeder
             ['label' => 'Laravel', 'color' => 'danger']
         ];
 
-        foreach ($technologies as $technology) {
+        foreach ($technologies as $data) {
             $technology = new Technology();
-            $technology->label = $technology['label'];
-            $technology->color = $technology['color'];
+            $technology->label = $data['label'];
+            $technology->color = $data['color'];
             $technology->save();
         }
     }
