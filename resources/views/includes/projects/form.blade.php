@@ -42,7 +42,7 @@
             <textarea type="text" id="description" name="description" class="form-control bg-dark">{{ old('description', $project->description) }}</textarea>
         </div>
 
-        {{-- Relation Type --}}
+        {{-- Relation Types Select  --}}
         <div class="mb-3 col-12 text-start">
             <label class="form-label bg-dark" for="type">Tipologia</label>
             <select name="type_id" id="type">
@@ -50,6 +50,23 @@
                     <option value="">{{ $type->label }}</option>
                 @endforeach
             </select>
+        </div>
+
+        {{-- Relation Technologies Checkboxes --}}
+        <div class="d-flex justify-content-start mb-3">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">Nessuna</label>
+            </div>
+
+            {{-- Dynamic Checkboxes --}}
+            @foreach ($technologies as $technology)
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox2">{{ $technology->label }}</label>
+                </div>
+            @endforeach
+
         </div>
 
         {{-- Thumb --}}

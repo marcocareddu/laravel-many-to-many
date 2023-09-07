@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
@@ -18,7 +19,8 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
         $types = Type::all();
-        return view('admin.projects.index', compact('projects', 'types'));
+        $technologies = Technology::all();
+        return view('admin.projects.index', compact('projects', 'types', 'technologies'));
     }
 
     /**
@@ -28,7 +30,8 @@ class ProjectController extends Controller
     {
         $project = new Project();
         $types = Type::all();
-        return view('admin.projects.create', compact('project', 'types'));
+        $technologies = Technology::all();
+        return view('admin.projects.create', compact('project', 'types', 'technologies'));
     }
 
     /**
