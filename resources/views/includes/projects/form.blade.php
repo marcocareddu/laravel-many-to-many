@@ -62,8 +62,9 @@
             {{-- Dynamic Checkboxes --}}
             @foreach ($technologies as $technology)
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label" for="inlineCheckbox2">{{ $technology->label }}</label>
+                    <input class="form-check-input" type="checkbox" @if (in_array($technology->id, old('technologies', $project_technology_ids ?? []))) checked @endif
+                        id="tech-{{ $technology->id }}" value="{{ $technology->id }}" name="technologies[]">
+                    <label class="form-check-label" for="tech-{{ $technology->id }}">{{ $technology->label }}</label>
                 </div>
             @endforeach
 
