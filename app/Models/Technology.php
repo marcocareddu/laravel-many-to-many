@@ -12,6 +12,6 @@ class Technology extends Model
     // Many to Many on Project
     public function projects()
     {
-        return $this->belongsToMany(Technology::class);
+        return $this->belongsToMany(Project::class);
     }
 }
